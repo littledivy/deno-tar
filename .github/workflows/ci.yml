@@ -17,7 +17,7 @@ jobs:
     strategy:
       matrix:
         os: [macOS-latest, windows-latest, ubuntu-latest]
-    
+
     env:
       GH_ACTIONS: true
       RUST_BACKTRACE: full
@@ -66,12 +66,6 @@ jobs:
           python-version: "2.7.x"
           architecture: x64
 
-      - name: Install webkit2gtk
-        if: matrix.os == 'ubuntu-latest'
-        run: |
-          sudo apt-get update
-          sudo apt-get install libwebkit2gtk-4.0-dev
-
       - name: Build
         env:
           RUST_BACKTRACE: 1
@@ -82,10 +76,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: "deno_webview release"
+          tag_name: "deno_tar release"
           draft: true
           files: |
-            target/release/libdeno_webview.dylib
-            target/release/libdeno_webview.so
-            target/release/deno_webview.dll
- 
+            target/release/libdeno_tar.dylib
+            target/release/libdeno_tar.so
+            target/release/deno_tar.dll
