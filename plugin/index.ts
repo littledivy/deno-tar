@@ -55,7 +55,8 @@ const core = Deno.core as {
 
 
 const {
-  archive
+  archive,
+  read_archive
 } = core.ops();
 
 const textDecoder = new TextDecoder();
@@ -63,5 +64,10 @@ const textEncoder = new TextEncoder();
 
 export function TarArchive(params: ArchiveParams) {
   const response = core.dispatch(archive, textEncoder.encode(JSON.stringify(params)));
+  return JSON.parse(textDecoder.decode(response));
+}
+
+export function TarReadArchive(params: any) {
+  const response = core.dispatch(read_archive, textEncoder.encode(params));
   return JSON.parse(textDecoder.decode(response));
 }

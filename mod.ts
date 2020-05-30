@@ -1,5 +1,6 @@
 import {
   TarArchive,
+  TarReadArchive
 } from "./plugin/index.ts";
 
 import { ArchiveParams } from "./types.ts";
@@ -21,6 +22,12 @@ class Tar {
         files: this.files,
       } as ArchiveParams,
     );
+  }
+}
+
+export class ArchiveReader {
+  open(file: string) {
+    return TarReadArchive(file);
   }
 }
 
