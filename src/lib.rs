@@ -36,7 +36,6 @@ fn op_archive(
     let file = File::create(params.tarname).unwrap();
     let mut a = Builder::new(file);
     for i in params.files {
-       println!("{:#?}", i);
        a.append_path(i).unwrap();
     }
     // a.append_file("file2.txt", &mut File::open("file3.txt").unwrap()).unwrap();
