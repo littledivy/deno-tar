@@ -11,16 +11,21 @@ Read and Create a TAR using Deno.
 Run the following code with the `-A` and `--unstable` (and `-r` if you have
 used this module before) flags enabled to get the example shown above:
 
+### Create an archive
+
 ```ts
 import Archive from "mod.ts";
-
 let myTar = new Archive("archive.tar");
-
-myTar.add("sometext.txt");
-
-myTar.add("someimg.png");
-
+myTar.add("sometext.txt").add("someimg.png");
 myTar.archive();
+```
+
+### Read an archive
+
+```ts
+import { ArchiveReader } from "mod.ts";
+let myTar = new ArchiveReader("archive.tar");
+console.log(myTar.open());
 ```
 
 ## Contributing
