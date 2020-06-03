@@ -30,13 +30,13 @@ if (isDev) {
   const rid = Deno.openPlugin(filename);
 } else {
   const pluginId = await prepare({
-    name: "autopilot_deno",
+    name: "deno_tar",
     printLog: true,
     checkCache: Boolean(Deno.env.get("CACHE")) || true,
     urls: {
-      darwin: `${PLUGIN_URL_BASE}/libautopilot_deno.dylib`,
-      windows: `${PLUGIN_URL_BASE}/autopilot_deno.dll`,
-      linux: `${PLUGIN_URL_BASE}/libautopilot_deno.so`,
+      darwin: `${PLUGIN_URL_BASE}/libdeno_tar.dylib`,
+      windows: `${PLUGIN_URL_BASE}/deno_tar.dll`,
+      linux: `${PLUGIN_URL_BASE}/libdeno_tar.so`,
     },
   });
 }
