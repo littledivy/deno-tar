@@ -1,3 +1,5 @@
+# Archived in favour of https://deno.land/std/archive/tar.ts
+
 # deno-tar
 
 [![license](https://img.shields.io/github/license/divy-work/deno-tar)](https://github.com/divy-work/deno-tar/blob/master/LICENSE)
